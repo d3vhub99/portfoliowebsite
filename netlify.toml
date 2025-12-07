@@ -1,2 +1,7 @@
 [build]
   publish = "."
+
+[[redirects]]
+  from = "/"
+  to = "/PortfolioWebsite.html"
+  status = 200
