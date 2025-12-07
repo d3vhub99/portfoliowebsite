@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devansh Joshi - NetSuite Technical Consultant</title>
+    
+    <!-- Cascadia Code Font & Font Awesome -->
+    <link href="https://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables for Theme Management */
+        :root {
+            /* Light Mode (Off-White Background) */
+            --bg-color: #fdfdfd;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent-color: #0056b3;
+            --border-color: #e0e0e0;
+            --card-bg: #ffffff;
+            --tag-bg: #f0f0f0;
+            --btn-bg: #1a1a1a;
+            --btn-text: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode */
+            --bg-color: #121212;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #66b3ff;
+            --border-color: #333333;
+            --card-bg: #1e1e1e;
+            --tag-bg: #2d2d2d;
+            --btn-bg: #e0e0e0;
+            --btn-text: #121212;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Cascadia Code', 'Courier New', monospace; /* Cascadia Code Font */
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+
+        /* Header & Nav */
+        header {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .theme-toggle-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .headline {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dotted transparent;
+        }
+
+        a:hover {
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Buttons */
+        .btn-main {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: none;
+        }
+
+        .btn-main:hover {
+            opacity: 0.9;
+            border-bottom: none;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Experience & Projects */
+        .entry {
+            margin-bottom: 2.5rem;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .role {
+            display: block;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        /* Skills Tags */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-tag {
+            background: var(--tag-bg);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            cursor: pointer;
+            padding: 12px 16px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        #scrollTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #scrollTopBtn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px var(--shadow);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .entry-header {
+                flex-direction: column;
+            }
+            .date {
+                margin-bottom: 0.5rem;
+            }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Theme Toggle Button -->
+        <header>
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            
+            <h1>Devansh Joshi</h1>
+            <div class="headline">NetSuite Technical Consultant • Automation Specialist</div>
+            
+            <div class="contact-links">
+                <a href="mailto:djdevansh5@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://linkedin.com/in/joshidevansh" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+
+            <a href="Devansh_Joshi_Resume_Netsuite_2025.pdf" class="btn-main" download>
+                <i class="fas fa-download"></i> Download Resume
+            </a>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            <p>Technical Consultant with 3+ years of experience specializing in NetSuite ERP. I design and implement custom solutions using SuiteScript 2.1 and REST APIs to automate complex business processes. My focus is on reducing manual effort, ensuring tax compliance, and optimizing operational efficiency.</p>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>Ignitive Software Labs</h3>
+                    <span class="date">May 2022 – Present</span>
+                </div>
+                <span class="role">NetSuite Technical Consultant</span>
+                <ul>
+                    <li>Designed and deployed custom NetSuite solutions utilizing SuiteScript 2.1 for process automation.</li>
+                    <li>Architected REST API integrations between NetSuite and external third-party systems.</li>
+                    <li>Led critical automation initiatives for Indian tax compliance and financial transaction processing.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>Definedge Solutions</h3>
+                    <span class="date">March 2021 – May 2021</span>
+                </div>
+                <span class="role">Associate Software Developer</span>
+                <ul>
+                    <li>Executed the migration of internal legacy codebase from Python to Java Spring MVC.</li>
+                    <li>Developed scalable backend services using Java and Cassandra database.</li>
+                    <li>Built responsive frontend components using Angular.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>Tax Automation Suite</h3>
+                </div>
+                <ul>
+                    <li>Reduced compliance errors by 50% by automating e-Invoice and e-Way Bill generation.</li>
+                    <li>Enabled real-time GST compliance via REST API integration with government tax portals.</li>
+                    <li>Optimized vendor prepayment TDS calculations, cutting processing time by 40%.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>Inventory Optimization</h3>
+                </div>
+                <ul>
+                    <li>Engineered Map/Reduce scripts to process large-scale inventory balances with formula-based filtering.</li>
+                    <li>Streamlined multi-location stock adjustments by creating custom status change records.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li class="skill-tag">SuiteScript 2.1</li>
+                <li class="skill-tag">JavaScript (ES6+)</li>
+                <li class="skill-tag">NetSuite ERP</li>
+                <li class="skill-tag">REST APIs</li>
+                <li class="skill-tag">Java Spring MVC</li>
+                <li class="skill-tag">Cassandra</li>
+                <li class="skill-tag">Angular</li>
+                <li class="skill-tag">Git</li>
+                <li class="skill-tag">HTML/CSS</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>Master of Engineering</h3>
+                    <span class="date">2021</span>
+                </div>
+                <span class="role">Shri Govindram Seksaria Institute of Technology and Science, Indore</span>
+            </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>Bachelor of Technology</h3>
+                    <span class="date">2016</span>
+                </div>
+                <span class="role">Graphic Era University, Dehradun</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>
+                &copy; 2025 Devansh Joshi. Built with minimal HTML, CSS & JS.<br>
+                Inspired by the geniuses behind <a href="http://motherfuckingwebsite.com/" target="_blank">motherfuckingwebsite.com</a> and <a href="http://txti.es/" target="_blank">txti</a>.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Dark Mode Logic
+        const toggleBtn = document.getElementById('themeToggle');
+        const icon = toggleBtn.querySelector('i');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+
+        // Scroll to Top Logic
+        const scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+        };
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+</html>
