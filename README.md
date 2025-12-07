@@ -28,15 +28,15 @@
 
 ```
 ┌─────────────────────────────────────────────────┐
-│  Frontend  │ React + Vite                        │
+│  Frontend  │ Vanilla HTML, CSS & JavaScript                        │
 ├─────────────────────────────────────────────────┤
-│  Styling   │ Tailwind CSS + Custom CSS           │
+│  Styling   │ Custom CSS with Cascadia Code Font           │
 ├─────────────────────────────────────────────────┤
 │  Font      │ Cascadia Code (Monospace Beauty)    │
 ├─────────────────────────────────────────────────┤
 │  Theme     │ Dark/Light Mode Toggle              │
 ├─────────────────────────────────────────────────┤
-│  Deploy    │ GitHub Pages / Vercel               │
+│  Deploy    │ GitHub Pages               │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -125,28 +125,31 @@
 git clone https://github.com/d3vhub99/portfoliowebsite.git
 cd portfoliowebsite
 
-# Install dependencies
-npm install
+# No dependencies required!
 
-# Development server
-npm run dev
+Just open `index.html` in your browser. The site runs with vanilla HTML, CSS, and JavaScript.
 
-# Build for production
-npm run build
+# For local development
 
-# Deploy
-npm run deploy
+Use a simple HTTP server:
+
+```bash
+python -m http.server 8000
+# or
+python -m SimpleHTTPServer 8000  # Python 2
+```
+
+Then visit `http://localhost:8000`
 ```
 
 ---
 
 ## 🎨 Customization
 
-**Theme Toggle:** `src/components/ThemeToggle.jsx`
-**Colors:** `src/styles/theme.css`
-**Fonts:** Import Cascadia Code in `index.html`
-**Scroll Button:** `src/components/ScrollToTop.jsx`
-
+**Theme Toggle:** `js/theme.js`
+**Colors:** `css/theme.css`
+**Fonts:** Cascadia Code imported in `index.html`
+**Scroll Button:** `js/scrollToTop.js`
 ---
 
 ## 📫 Get In Touch
