@@ -116,41 +116,7 @@
 ⏱️  Load Time: < 1.2s
 ```
 
----
-
-## 🛠️ Installation & Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/d3vhub99/portfoliowebsite.git
-cd portfoliowebsite
-
-# No dependencies required!
-
-Just open `index.html` in your browser. The site runs with vanilla HTML, CSS, and JavaScript.
-
-# For local development
-
-Use a simple HTTP server:
-
-```bash
-python -m http.server 8000
-# or
-python -m SimpleHTTPServer 8000  # Python 2
-```
-
-Then visit `http://localhost:8000`
-```
-
----
-
-## 🎨 Customization
-
-**Theme Toggle:** `js/theme.js`
-**Colors:** `css/theme.css`
-**Fonts:** Cascadia Code imported in `index.html`
-**Scroll Button:** `js/scrollToTop.js`
----
+119
 
 ## 📫 Get In Touch
 
@@ -180,3 +146,4 @@ Then visit `http://localhost:8000`
 > "Code is poetry. Clean code is a masterpiece." — Every Developer Ever
 
 **⭐ If this helps, give it a star!** 🌟
+119
